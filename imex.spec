@@ -6,8 +6,8 @@ License:        NVIDIA Proprietary
 URL:            http://nvidia.com
 ExclusiveArch:  x86_64 aarch64
 
-Source0:        https://developer.download.nvidia.com/compute/cuda/redist/%{name}/linux-x86_64/%{name}-linux-x86_64-%{version}-archive.tar.xz
-Source1:        https://developer.download.nvidia.com/compute/cuda/redist/%{name}/linux-sbsa/%{name}-linux-sbsa-%{version}-archive.tar.xz
+Source0:        https://developer.download.nvidia.com/compute/cuda/redist/%{name}/linux-x86_64/nvidia-%{name}-linux-x86_64-%{version}-archive.tar.xz
+Source1:        https://developer.download.nvidia.com/compute/cuda/redist/%{name}/linux-sbsa/nvidia-%{name}-linux-sbsa-%{version}-archive.tar.xz
 Source2:        nvidia-%{name}-tmpfiles.conf
 
 %if 0%{?fedora} || 0%{?rhel} >= 8
@@ -23,15 +23,16 @@ import and export mechanisms.
 
 %prep
 %ifarch x86_64
-%setup -q -n %{name}-linux-x86_64-%{version}-archive
+%setup -q -n nvidia-%{name}-linux-x86_64-%{version}-archive
 %endif
 
 %ifarch aarch64
-%setup -q -T -b 1 -n %{name}-linux-sbsa-%{version}-archive
+%setup -q -T -b 1 -n nvidia-%{name}-linux-sbsa-%{version}-archive
 %endif
 
 %install
-install -p -m 0644 -D etc/config.cfg %{buildroot}/%{_sysconfdir}/nvidia-imex/config.cfg
+
+install -p -m 0644 -D etc/nvidia_imex/config.cfg %{buildroot}/%{_sysconfdir}/nvidia-%{name}/config.cfg
 
 install -p -m 0644 -D lib/systemd/system/nvidia-imex.service %{buildroot}%{_unitdir}/nvidia-imex.service
 
