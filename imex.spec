@@ -32,7 +32,7 @@ import and export mechanisms.
 
 %install
 
-install -p -m 0644 -D etc/nvidia_imex/config.cfg %{buildroot}/%{_sysconfdir}/nvidia-%{name}/config.cfg
+install -p -m 0644 -D etc/nvidia-imex/config.cfg %{buildroot}/%{_sysconfdir}/nvidia-%{name}/config.cfg
 
 install -p -m 0644 -D lib/systemd/system/nvidia-imex.service %{buildroot}%{_unitdir}/nvidia-imex.service
 
