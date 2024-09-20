@@ -1,3 +1,5 @@
+%global debug_package %{nil}
+
 Name:           imex
 Version:        560.35.03
 Release:        1%{?dist}
