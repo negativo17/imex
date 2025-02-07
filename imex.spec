@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           imex
-Version:        560.35.03
+Version:        570.86.10
 Release:        1%{?dist}
 Summary:        NVIDIA Imex daemon
 License:        NVIDIA Proprietary
@@ -64,6 +64,9 @@ install -P -m 0755 usr/bin/* %{buildroot}/%{_bindir}/
 %{_tmpfilesdir}/nvidia-%{name}.conf
 
 %changelog
+* Fri Feb 07 2025 Simone Caronni <negativo17@gmail.com> - 570.86.10-1
+- Update to 570.86.10.
+
 * Thu Sep 19 2024 Simone Caronni <negativo17@gmail.com> - 560.35.03-1
 - Update to 560.35.03.
 
